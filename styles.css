@@ -4,7 +4,7 @@ body {
 }
 
 .game {
-    border: solid;
+    
     padding-left: 120px;
     padding-top: 160px;
 }
@@ -16,9 +16,11 @@ body {
     width: 300px;
     height: 300px;
     border: solid;
-    
-    
-    
+}
+
+
+.reset {
+    margin-top:10px ;
 }
 
 .cell {
