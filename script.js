@@ -7,16 +7,16 @@ const message = document.querySelector(".message"); // Message to display game o
 const reset = document.querySelector(".reset"); // Reset button
 
 // Player Factory function to create player objects with name and marker
-const PlayerFactory = (name, marker) => {
-  return { name, marker };
+const PlayerFactory = (marker) => {
+  return { marker };
 }
 
 // Initialize game variables
 let marksGenerated = 0; // Counter for the total marks placed
 let winner = false; // Flag to track the game winner
 let draw = false; // Flag to track if the game is drawn
-const player = PlayerFactory(prompt("Enter your name"), "X"); // User player
-const computer = PlayerFactory("Computer", "O"); // Computer player
+const player = PlayerFactory("X"); // User player
+const computer = PlayerFactory("O"); // Computer player
 const cells = document.querySelectorAll(".cell"); // Individual cells on the game board
 
 
@@ -124,7 +124,7 @@ function checkWinner() {
 // Function to display the winner's name in the message element
 function getWinner(marker) {
   if (marker == player.marker) {
-    message.textContent = `${player.name} wins!`;
+    message.textContent = `Player wins!`;
   } else {
     message.textContent = "Computer wins!";
   }
