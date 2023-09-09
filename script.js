@@ -15,6 +15,7 @@ const PlayerFactory = (marker) => {
 let marksGenerated = 0; // Counter for the total marks placed
 let winner = false; // Flag to track the game winner
 let draw = false; // Flag to track if the game is drawn
+let messageflag=0;// Fixes the issue when the user wins by placing the marker
 const player = PlayerFactory("X"); // User player
 const computer = PlayerFactory("O"); // Computer player
 const cells = document.querySelectorAll(".cell"); // Individual cells on the game board
@@ -125,8 +126,10 @@ function checkWinner() {
 function getWinner(marker) {
   if (marker == player.marker) {
     message.textContent = `Player wins!`;
+    messageflag++;
   } else {
     message.textContent = "Computer wins!";
+    messageflag++;
   }
 }
 function checkDraw(){
@@ -136,7 +139,7 @@ function checkDraw(){
     temp = temp & markerPlaced[index];      
     
 }
-if(temp==true)
+if(temp==true & messageflag==0)
 {
     message.textContent="Game Drawn!"
 }
